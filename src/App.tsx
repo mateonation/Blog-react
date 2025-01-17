@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 
 const App=()=>(
     <>
-        <Header/>;
+        <Header/>
         <NavBar/>
         <Footer/>
     </>

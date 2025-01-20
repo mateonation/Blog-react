@@ -22,4 +22,10 @@ main{
 
 main h2 {
     font-size: 2rem;
+    +p{
+        margin-top:0;
+    }
+}
+#no-items{
+    color:#b8b8b8;
 }

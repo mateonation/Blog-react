@@ -13,7 +13,7 @@ const Home=()=>{
         <h2>Featured posts</h2>
         {
         posts.length===0?(
-            <p className='no-items'>No posts.</p>
+            <p id='no-items'>No posts.</p>
         ):(
             <p>There are {posts.length} posts.</p>
         )

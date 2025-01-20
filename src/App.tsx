@@ -2,10 +2,11 @@ import './App.css';
 import ErrorPage from './pages/ErrorPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './routes/Root';
 
 const router=createBrowserRouter([{
     path:'/',
-    element: <h1>Home</h1>,
+    element: <RootLayout />,
     errorElement: <ErrorPage />
 },
     {

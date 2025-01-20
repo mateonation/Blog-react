@@ -1,0 +1,9 @@
+#err{
+    color:red;
+    display:flex;
+    flex-flow:column;
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    margin-right:auto;
+}

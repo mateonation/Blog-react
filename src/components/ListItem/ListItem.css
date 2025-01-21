@@ -1,10 +1,11 @@
 .link {
     display: block;
-    background-color: orange;
+    background-color: #48d343;
     padding: 10px;
     text-align: center;
     margin: 10px auto;
     width: 90vw;
+    border-radius:1em;
 }
 
 .link a {
@@ -15,6 +16,6 @@
     font-weight: bold;
 }
 
-.link a:hover {
-    text-decoration: underline;
+.link:hover{
+    background-color: #84d120;
 }

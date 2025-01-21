@@ -5,6 +5,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import RootLayout from './routes/Root';
 import Home from './routes/Home';
 import Posts from './routes/Posts';
+import Users from './routes/Users';
 
 const router=createBrowserRouter([{
     path:'/',
@@ -24,6 +25,11 @@ const router=createBrowserRouter([{
             path: 'posts',
             element: <Posts />,
             loader:Posts.loader,
+        },
+        {
+            path: 'users',
+            element: <Users />,
+            loader:Users.loader,
         }
     ]
 },

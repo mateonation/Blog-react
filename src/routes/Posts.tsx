@@ -8,7 +8,7 @@ const loader: LoaderFunction=async()=>{
     return posts.slice(0, 10);
 };
 
-const Home=()=>{
+const Posts=()=>{
     const posts=useLoaderData() as PostResponse[];
     return (<>
         <h2>Featured posts</h2>
@@ -23,5 +23,5 @@ const Home=()=>{
     );
 };
 
-Home.loader=loader;
-export default Home;
+Posts.loader=loader;
+export default Posts;

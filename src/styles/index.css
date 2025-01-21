@@ -18,11 +18,21 @@ main{
     align-items: center;
     gap: 20px;
     padding: 20px;
+    .index{
+        text-align:center;
+        h2 {
+            font-size: 2rem;
+        }
+        span,a{
+            font-weight:bold;
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:underline;
+        }
+    }
 }
 
-main h2 {
-    font-size: 2rem;
-}
 #no-items{
     color:#b8b8b8;
 }

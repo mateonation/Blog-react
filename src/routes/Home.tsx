@@ -1,4 +1,4 @@
-import { LoaderFunction, useLoaderData } from "react-router-dom";
+import { LoaderFunction, NavLink, useLoaderData } from "react-router-dom";
 import { PostResponse } from "../types/app";
 import List from "../components/List";
 
@@ -11,7 +11,10 @@ const loader: LoaderFunction=async()=>{
 const Home=()=>{
     const posts=useLoaderData() as PostResponse[];
     return (<>
-        <h2>Featured posts</h2>
+        <div className="index">
+            <h2>Featured posts</h2>
+            <NavLink to='/posts'>View all posts</NavLink>
+        </div>
         {
         posts.length===0?(
             <p id='no-items'>No posts.</p>

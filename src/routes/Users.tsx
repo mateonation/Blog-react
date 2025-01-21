@@ -11,7 +11,10 @@ const loader:LoaderFunction=async()=>{
 const Users=()=>{
     const users=useLoaderData() as UserResponse[];
     return (<>
-        <h2>Users</h2>
+        <div className="index">
+            <h2>Users</h2>
+            <p>Total users registered: <span>{users.length}</span></p>
+        </div>
         {
             users.length===0?(
                 <p id='no-items'>No users.</p>

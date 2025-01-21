@@ -11,7 +11,10 @@ const loader: LoaderFunction=async()=>{
 const Posts=()=>{
     const posts=useLoaderData() as PostResponse[];
     return (<>
-        <h2>All posts</h2>
+        <div className="index">
+            <h2>All posts</h2>
+            <p>Total posts: <span>{posts.length}</span></p>
+        </div>
         {
         posts.length===0?(
             <p id='no-items'>No posts.</p>

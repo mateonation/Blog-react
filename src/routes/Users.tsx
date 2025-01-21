@@ -1,26 +1,30 @@
 import { LoaderFunction, useLoaderData } from "react-router-dom";
-import { PostResponse } from "../types/app";
+import { UserResponse } from "../types/app";
 import List from "../components/List";
 
-const loader: LoaderFunction=async()=>{
-    const response=await fetch('https://jsonplaceholder.typicode.com/posts');
-    const posts:PostResponse[]=await response.json();
-    return posts.slice(0, 10);
+const loader:LoaderFunction=async()=>{
+    const response=await fetch('https://jsonplaceholder.typicode.com/users');
+    const users=await response.json();
+    return users;
 };
 
 const Users=()=>{
-    const posts=useLoaderData() as PostResponse[];
+    const users=useLoaderData() as UserResponse[];
     return (<>
-        <h2>Featured posts</h2>
+        <h2>Users</h2>
         {
-        posts.length===0?(
-            <p id='no-items'>No posts.</p>
-        ):(
-            <List items={posts.map(post=>({text:post.title,link:'/posts/${post.id}'}))} />
-        )
+            users.length===0?(
+                <p id='no-items'>No users.</p>
+            ):(
+                <List
+                    items={users.map(user=>({
+                        text:`${user.name} (${user.email})`,
+                        link:`/users/${user.id}`,
+                    }))} 
+                />
+            )
         }
-    </>
-    );
+    </>);
 };
 
 Users.loader=loader;

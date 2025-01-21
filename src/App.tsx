@@ -4,6 +4,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import RootLayout from './routes/Root';
 import Home from './routes/Home';
+import Posts from './routes/Posts';
 
 const router=createBrowserRouter([{
     path:'/',
@@ -18,6 +19,11 @@ const router=createBrowserRouter([{
             path: 'home',
             element: <Home />,
             loader:Home.loader,
+        },
+        {
+            path: 'posts',
+            element: <Posts />,
+            loader:Posts.loader,
         }
     ]
 },

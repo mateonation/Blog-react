@@ -29,7 +29,7 @@ const Register=()=>(
                 <label htmlFor='password2'>Confirm Password</label>
                 <input type='password' name='password2' required />
             </div>
-            <button id='register' type='submit'>Register</button>
+            <button type='submit'>Register</button>
         </Form>
     </>
 );

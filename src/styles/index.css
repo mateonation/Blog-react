@@ -40,6 +40,35 @@ main{
             margin-right: auto;
         }
     }
+    form{
+        width:500px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        .form-field {
+            margin:1em;
+            width:500px;
+            display:flex;
+            justify-content:space-between;
+            label {
+                font-size:1.2rem;
+            }
+        }
+        button{
+            background-color:#0c4632;
+            color:white;
+            font-weight: bold;
+            border:none;
+            padding:10px;
+            border-radius:2em;
+            cursor:pointer;
+            width:200px;
+        }
+        button:hover{
+            background-color:#3cb184;
+        }
+    }
 }
 
 #no-items{

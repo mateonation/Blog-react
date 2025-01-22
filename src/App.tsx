@@ -8,6 +8,7 @@ import Posts from './routes/Posts';
 import Users from './routes/Users';
 import PostDetails from './routes/PostDetails';
 import UserDetails from './routes/UserDetails';
+import Register from './routes/Register';
 
 const router=createBrowserRouter([{
     path:'/',
@@ -52,7 +53,12 @@ const router=createBrowserRouter([{
                     loader:UserDetails.loader,
                 }
             ]
-        }
+        },
+        {
+            path: 'register',
+            element: <Register />,
+            action:Register.action,
+        },
     ]
 },
     {

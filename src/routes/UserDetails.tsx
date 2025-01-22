@@ -21,17 +21,18 @@ const UserDetails=()=>{
             </>
         )
     }
+    const firstname=user.name.split(" ");
     return (<>
         <div className="index">
-            <h2>User name: {user.name}</h2>
-            <p>id: {user.id}</p>
+            <h2>{user.name}</h2>
         </div>
         <div className="userDetails">
+            <p>User ID: {user.id}</p>
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
             <p>Phone: {user.phone}</p>
             <p>URL: <a href={`https://${user.website}`} target="_blank">{user.website}</a></p>
-            <Link id="viewUserPosts" to={`/posts/?userId=${user.id}`}>View {user.name}'s posts</Link>
+            <Link id="viewUserPosts" to={`/posts/?userId=${user.id}`}>View {firstname[0]}'s posts</Link>
         </div>
     </>
     );

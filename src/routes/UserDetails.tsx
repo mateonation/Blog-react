@@ -1,4 +1,4 @@
-import { LoaderFunction, useLoaderData } from "react-router-dom";
+import { Link, LoaderFunction, useLoaderData } from "react-router-dom";
 import { UserResponse } from "../types/app";
 
 const loader: LoaderFunction=async({params})=>{
@@ -31,7 +31,7 @@ const UserDetails=()=>{
             <p>Email: {user.email}</p>
             <p>Phone: {user.phone}</p>
             <p>URL: <a href={`https://${user.website}`} target="_blank">{user.website}</a></p>
-            <a id="viewUserPosts" href="/posts">View {user.username}'s posts</a>
+            <Link id="viewUserPosts" to={`/posts/?userId=${user.id}`}>View {user.name}'s posts</Link>
         </div>
     </>
     );

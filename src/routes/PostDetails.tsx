@@ -2,8 +2,8 @@ import { LoaderFunction, useLoaderData } from "react-router-dom";
 import { PostResponse } from "../types/app";
 
 const loader: LoaderFunction=async({params})=>{
-    const response=await fetch(`https://jsonplaceholder.typicode.com/posts${params.postId}`);
-    const post:PostResponse=await response.json();
+    const responsePost=await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`);
+    const post:PostResponse=await responsePost.json();
     return {
         post,
         postId:params.postId,
@@ -20,14 +20,16 @@ const PostDetails=()=>{
             </div>
             </>
         )
-    }
-    return (<>
-        <div className="index">
-            <h2>{post.title}</h2>
+    }else{
+        return (<>
+            <div className="index">
+                <h2>{post.title}</h2>
+                <p>Posted by: </p>
+            </div>
             <p>{post.body}</p>
-        </div>
-    </>
-    );
+        </>
+        );
+    }
 };
 
 PostDetails.loader=loader;

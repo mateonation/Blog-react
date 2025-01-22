@@ -19,7 +19,7 @@ const Home=()=>{
         posts.length===0?(
             <p id='no-items'>No posts.</p>
         ):(
-            <List items={posts.map(post=>({text:post.title,link:'/posts/${post.id}'}))} />
+            <List items={posts.map(post=>({text:post.title,link:`/posts/${post.id}`}))} />
         )
         }
     </>

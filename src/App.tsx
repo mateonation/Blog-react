@@ -6,6 +6,7 @@ import RootLayout from './routes/Root';
 import Home from './routes/Home';
 import Posts from './routes/Posts';
 import Users from './routes/Users';
+import PostDetails from './routes/PostDetails';
 
 const router=createBrowserRouter([{
     path:'/',
@@ -23,8 +24,18 @@ const router=createBrowserRouter([{
         },
         {
             path: 'posts',
-            element: <Posts />,
-            loader:Posts.loader,
+            children:[
+                {
+                    index:true,
+                    element: <Posts />,
+                    loader:Posts.loader,
+                },
+                {
+                    path:':postId',
+                    element: <PostDetails />,
+                    loader: PostDetails.loader,
+                }
+            ]
         },
         {
             path: 'users',

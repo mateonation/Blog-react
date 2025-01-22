@@ -1,30 +1,34 @@
 import { LoaderFunction, useLoaderData } from "react-router-dom";
 import { PostResponse } from "../types/app";
-import List from "../components/List";
 
-const loader: LoaderFunction=async()=>{
-    const response=await fetch('https://jsonplaceholder.typicode.com/posts');
-    const posts:PostResponse[]=await response.json();
-    return posts;
+const loader: LoaderFunction=async({params})=>{
+    const response=await fetch(`https://jsonplaceholder.typicode.com/posts${params.postId}`);
+    const post:PostResponse=await response.json();
+    return {
+        post,
+        postId:params.postId,
+    };
 };
 
-const PostsDetails=()=>{
-    const posts=useLoaderData() as PostResponse[];
+const PostDetails=()=>{
+    const {post,postId}=useLoaderData() as {post:PostResponse,postId:number;};
+    if(Object.keys(post).length===0){
+        return(
+            <>
+            <div className="index">
+                <h2>No post found with id: {postId}</h2>
+            </div>
+            </>
+        )
+    }
     return (<>
         <div className="index">
-            <h2>All posts</h2>
-            <p>Total posts: <span>{posts.length}</span></p>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
         </div>
-        {
-        posts.length===0?(
-            <p id='no-items'>No posts.</p>
-        ):(
-            <List items={posts.map(post=>({text:post.title,link:'/posts/${post.id}'}))} />
-        )
-        }
     </>
     );
 };
 
-PostsDetails.loader=loader;
-export default PostsDetails;
+PostDetails.loader=loader;
+export default PostDetails;

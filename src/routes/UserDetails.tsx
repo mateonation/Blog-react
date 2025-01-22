@@ -1,30 +1,37 @@
 import { LoaderFunction, useLoaderData } from "react-router-dom";
-import { PostResponse } from "../types/app";
+import { UserResponse } from "../types/app";
 
 const loader: LoaderFunction=async({params})=>{
-    const response=await fetch(`https://jsonplaceholder.typicode.com/posts${params.postId}`);
-    const post:PostResponse=await response.json();
+    const response=await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
+    const user:UserResponse=await response.json();
     return {
-        post,
-        postId:params.postId,
+        user,
+        userId:params.postId,
     };
 };
 
 const UserDetails=()=>{
-    const {post,postId}=useLoaderData() as {post:PostResponse,postId:number;};
-    if(Object.keys(post).length===0){
+    const {user,userId}=useLoaderData() as {user:UserResponse,userId:number;};
+    if(Object.keys(user).length===0){
         return(
             <>
             <div className="index">
-                <h2>No post found with id: {postId}</h2>
+                <h2>No user found with id: {userId}</h2>
             </div>
             </>
         )
     }
     return (<>
         <div className="index">
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
+            <h2>User name: {user.name}</h2>
+            <p>id: {user.id}</p>
+        </div>
+        <div className="userDetails">
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+            <p>URL: <a href={`https://${user.website}`} target="_blank">{user.website}</a></p>
+            <a id="viewUserPosts" href="/posts">View {user.username}'s posts</a>
         </div>
     </>
     );

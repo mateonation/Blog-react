@@ -7,6 +7,7 @@ import Home from './routes/Home';
 import Posts from './routes/Posts';
 import Users from './routes/Users';
 import PostDetails from './routes/PostDetails';
+import UserDetails from './routes/UserDetails';
 
 const router=createBrowserRouter([{
     path:'/',
@@ -39,8 +40,18 @@ const router=createBrowserRouter([{
         },
         {
             path: 'users',
-            element: <Users />,
-            loader:Users.loader,
+            children:[
+                {
+                    index:true,
+                    element: <Users />,
+                    loader:Users.loader,
+                },
+                {
+                    path:':userId',
+                    element:<UserDetails />,
+                    loader:UserDetails.loader,
+                }
+            ]
         }
     ]
 },
